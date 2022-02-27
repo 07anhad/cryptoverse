@@ -10,7 +10,7 @@ const Header = () => {
         <AppBar color='transparent' position='static'>
             <Container>
                 <Toolbar>
-                    <Typography onClick={() => history.push("/")} 
+                    <Typography 
                     
                     style={{
                     fontSize: 20,
