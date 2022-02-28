@@ -1,41 +1,58 @@
-import { AppBar, Container, MenuItem, Select, Toolbar,Typography } from '@material-ui/core'
+import { AppBar, Container, createTheme, makeStyles, MenuItem, Select, ThemeProvider, Toolbar,Typography } from '@material-ui/core'
+import { type } from '@testing-library/user-event/dist/type';
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 
+
 const Header = () => {
 
-    const history = useHistory 
+    const history = useHistory();
+
+    const darkTheme = createTheme({
+        palette: {
+            primary: {
+                main:"#fff",
+            },
+            type:"dark"
+        },
+    })
 
     return (
+        <ThemeProvider theme={darkTheme}>
         <AppBar color='transparent' position='static'>
             <Container>
                 <Toolbar>
-                    <Typography 
-                    
-                    style={{
-                    fontSize: 20,
-                    cursor:'pointer',
-                    fontWeight:'bold',
-                    background: "-webkit-linear-gradient(45deg, #02aab0 30%, #00cdac 90%)",
-                    webkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    }}> Cryptoverse
+                    <Typography onClick={() => history.push("/")}
+
+                        variant='h6'
+                            
+                        style={{
+                        flex:1,
+                        fontSize: 20,
+                        userSelect:'none',
+                        cursor:'pointer',
+                        fontWeight:'bold',
+                        background: "-webkit-linear-gradient( #02aab0, #00cdac)",
+                        webkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        }}> Cryptoverse
                         
-                </Typography>
+                    </Typography>
                 
                     <Select variant='outlined'
                         style={{
                         width: 100,
                         height: 40,
-                        marginLeft:15
-                }}>
+                        marginRight:15
+                    }}>
                         <MenuItem value={"USD"}>USD</MenuItem>   
                         <MenuItem value={"INR"}>INR</MenuItem>   
-                </Select>
+                    </Select>
                     
                 </Toolbar>
             </Container>
-        </AppBar>
+            </AppBar>
+        </ThemeProvider>
     )
 }
 
