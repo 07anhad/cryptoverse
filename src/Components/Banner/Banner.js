@@ -14,6 +14,13 @@ const useStyles = makeStyles(() => ({
         paddingTop: 25,
         // opacity:0.4,
         justifyContent:"space-around",
+    },
+    tagline: {
+        display: "flex",
+        height: "40%",
+        flexDirection: "column",
+        justifyContent: "center",
+        textAlign:"center"
     }
 }))
 
@@ -29,7 +36,6 @@ const Banner = () => {
                           fontWeight: "bold",
                           color:"#099FFF",
                           marginBottom: 15,
-                          textAlign: "center",
                           fontFamily:"montserrat"
                           
                       }}  
@@ -42,7 +48,6 @@ const Banner = () => {
                     style={{
                         color: "darkgray",
                         textTransform: "capitalize",
-                        textAlign: "center",
                         fontFamily:"montserrat"
                           
                     }}
