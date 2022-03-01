@@ -2,11 +2,16 @@ import { AppBar, Container, createTheme, makeStyles, MenuItem, Select, ThemeProv
 import { type } from '@testing-library/user-event/dist/type';
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+import { CryptoState } from '../CryptoContext';
 
 
 const Header = () => {
 
     const history = useHistory();
+
+    const { currency, setCurrency } = CryptoState();
+    
+    console.log(currency);
 
     const darkTheme = createTheme({
         palette: {
@@ -28,11 +33,12 @@ const Header = () => {
                             
                         style={{
                         flex:1,
-                        fontSize: 20,
+                        fontSize: 24,
                         userSelect:'none',
                         cursor:'pointer',
-                        fontWeight:'bold',
-                        background: "-webkit-linear-gradient( #02aab0, #00cdac)",
+                        fontWeight: 'bold',
+                        // color:"cyan",
+                        background: 'linear-gradient(#FE6B8B 30%, #FF8E53 90%)',
                         webkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
                         }}> Cryptoverse
@@ -44,7 +50,10 @@ const Header = () => {
                         width: 100,
                         height: 40,
                         marginRight:15
-                    }}>
+                        }}
+                        value={currency}
+                        onChange={(e)=>setCurrency(e.target.value)}
+                    >
                         <MenuItem value={"USD"}>USD</MenuItem>   
                         <MenuItem value={"INR"}>INR</MenuItem>   
                     </Select>
