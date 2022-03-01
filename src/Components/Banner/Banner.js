@@ -1,5 +1,6 @@
 import { Container } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
+import { Typography } from '@material-ui/core'
 import React from 'react'
 
 const useStyles = makeStyles(() => ({
@@ -11,7 +12,7 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         flexDirection: "column",
         paddingTop: 25,
-        opacity:0.4,
+        // opacity:0.4,
         justifyContent:"space-around",
     }
 }))
@@ -20,7 +21,37 @@ const Banner = () => {
     const classes = useStyles();
   return (
       <div className={classes.banner}>
-          <Container className={classes.bannerContent}></Container>
+          <Container className={classes.bannerContent}>
+              <div className={classes.tagline}>
+                <Typography
+                      variant="h2"
+                      style={{
+                          fontWeight: "bold",
+                          color:"#099FFF",
+                          marginBottom: 15,
+                          textAlign: "center",
+                          fontFamily:"montserrat"
+                          
+                      }}  
+
+                  > 
+                      Cryptoverse
+                  </Typography>
+                  <Typography
+                    variant='subtitle2'
+                    style={{
+                        color: "darkgray",
+                        textTransform: "capitalize",
+                        textAlign: "center",
+                        fontFamily:"montserrat"
+                          
+                    }}
+                  >
+                      Get all the info regarding your favorite crypto currencies
+
+                  </Typography>
+              </div>
+          </Container>
           
     </div>
   )
